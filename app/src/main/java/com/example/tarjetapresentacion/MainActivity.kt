@@ -6,11 +6,19 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -41,6 +49,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
 
 @Composable
 fun presentacion() {
@@ -77,8 +86,72 @@ fun presentacion() {
             fontSize = 12.sp,
             color = Color(0xFF3ddc84)
         )
+        // Agrega los textos con sus respectivos logos
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.padding(bottom = 16.dp)
+        ) {
+            // Texto y logo del teléfono
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Phone,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                    tint = Color.Green
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = "+34 654 321 000",
+                    fontSize = 16.sp
+                )
+            }
+        }
+
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            // Texto y logo de correo electrónico
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Email,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                    tint = Color.Green
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = "correo@example.com",
+                    fontSize = 16.sp
+                )
+            }
+
+            // Texto y logo de compartir
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Share,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp),
+                    tint = Color.Green
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = "Compartir",
+                    fontSize = 16.sp
+                )
+            }
+        }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
